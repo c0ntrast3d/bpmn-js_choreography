@@ -11,7 +11,7 @@ module.exports = {
 
   context: path.resolve(__dirname, 'src'),
   entry: ["./index.js"],
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -21,6 +21,7 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new CopyWebpackPlugin([
       { from: 'index.html', to: 'index.html' },
+      { from: 'resources/newDiagram.bpmn', to: 'newDiagram.bpmn' },
     ]),
   ],
 
