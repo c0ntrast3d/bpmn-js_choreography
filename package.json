@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "webpack --progress -p",
-    "server": "webpack-dev-server --progress --open"
+    "server": "webpack-dev-server --progress --open",
+    "watch:": "webpack --watch"
   },
   "keywords": [],
   "author": "",
