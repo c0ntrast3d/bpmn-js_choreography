@@ -1,10 +1,10 @@
 'use strict';
 
 var fs = require('fs');
-var path = require("path");
 
-var $ = require('jquery'),
-    BpmnModeler = require('bpmn-js/lib/Modeler');
+var $ = require('jquery');
+
+var BpmnModeler = require('bpmn-js/lib/Modeler');
 
 var container = $('#js-drop-zone');
 
@@ -12,7 +12,7 @@ var canvas = $('#js-canvas');
 
 var modeler = new BpmnModeler({ container: canvas });
 
-var newDiagramXML = fs.readFileSync(path.resolve(__dirname, "resources/newDiagram.bpmn"), 'utf-8');
+var newDiagramXML = fs.readFileSync(__dirname + '/resources/newDiagram.bpmn', 'utf-8');
 
 function createNewDiagram() {
   openDiagram(newDiagramXML);
@@ -98,13 +98,12 @@ if (!window.FileList || !window.FileReader) {
 
 // bootstrap diagram functions
 
-$(document).on('ready', function() {
+  $(document).ready(function() {
+    $('#js-create-diagram').click(function(e) {
+      e.preventDefault();
+      e.stopPropagation();
 
-  $('#js-create-diagram').click(function(e) {
-    e.stopPropagation();
-    e.preventDefault();
-
-    createNewDiagram();
+      createNewDiagram();
   });
 
   var downloadLink = $('#js-download-diagram');
