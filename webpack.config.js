@@ -1,47 +1,35 @@
 const path = require('path');
-const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-
-  node: {
-    fs: 'empty'
-  },
-
   context: path.resolve(__dirname, 'src'),
-  entry: ["./index.js"],
+  entry: "./index.js",
   devtool: 'source-map',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/js'),
     filename: 'bundle.js',
   },
-
-  plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new CopyWebpackPlugin([
-      { from: 'index.html', to: 'index.html' },
-      { from: 'resources/newDiagram.bpmn', to: 'newDiagram.bpmn' },
-    ]),
-  ],
-
-  module: {
-    rules: [
-      {
-        test: /\.(png|woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader'
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
-    ]
-  },
-
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
+    port: 9000,
+  },
+  plugins: [
+    //new CleanWebpackPlugin(['dist']),
+    new CopyWebpackPlugin([
+      { from: 'index.html', to: '../index.html' },
+      { from: 'style/app.css', to: '../css' },
+      { from: '../node_modules/bpmn-js/assets/bpmn-font/css/', to: '../css' },
+      { from: '../node_modules/bpmn-js/assets/bpmn-font/font/', to: '../font' },
+      { from: '../node_modules/diagram-js/assets/', to: '../css' },
+    ]),
+  ],
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: "transform-loader?brfs"
+      }
+    ],
   },
 };
