@@ -1,7 +1,7 @@
 Installation procedure:
 
 1. Clone repo
-2. cd bppmn-js_modeler_webpack
+2. cd bpmn-js_modeler_webpack
 3. npm install
 4. npm run build
 5. npm run server
