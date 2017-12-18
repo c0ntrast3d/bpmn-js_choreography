@@ -4,7 +4,7 @@ var fs = require('fs');
 
 var $ = require('jquery');
 
-var BpmnModeler = require('./custom-modeler');
+var BpmnModeler = require('./custom-elements');
 
 var container = $('#js-drop-zone');
 
