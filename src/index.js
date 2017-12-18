@@ -4,13 +4,13 @@ var fs = require('fs');
 
 var $ = require('jquery');
 
-var BpmnModeler = require('bpmn-js/lib/Modeler');
+var BpmnModeler = require('./custom-modeler');
 
 var container = $('#js-drop-zone');
 
 var canvas = $('#js-canvas');
 
-var modeler = new BpmnModeler({ container: canvas });
+var modeler = new BpmnModeler({ container: canvas, keyboard: { bindTo: document } });
 
 var newDiagramXML = fs.readFileSync(__dirname + '/resources/newDiagram.bpmn', 'utf-8');
 
