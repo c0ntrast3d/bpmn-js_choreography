@@ -63,6 +63,7 @@ CustomElementFactory.$inject = [ 'injector' ];
  *
  * @return {Bounds} { width, height}
  */
+
 CustomElementFactory.prototype._getCustomElementSize = function(type) {
   if (!type) {
     return { width: 100, height: 80 };
@@ -70,7 +71,8 @@ CustomElementFactory.prototype._getCustomElementSize = function(type) {
 
   var shapes = {
     triangle: { width: 40, height: 40 },
-    circle: { width: 140, height: 140 }
+    circle: { width: 40, height: 40 },
+    choreography: { width: 200, height: 80 }
   };
 
   return shapes[type];

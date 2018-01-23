@@ -13,6 +13,26 @@ body, html {
   margin: 0;
 }
 
+.icon-custom-triangle:before {
+  background: url('death_star.png') no-repeat;
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding-bottom: 10px;
+  content:"";
+}
+
+.icon-custom-circle:before {
+  background: url('death_star.png') no-repeat;
+  background-size: 20px 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding-bottom: 10px;
+  content:"";
+}
+
 a:link {
   text-decoration: none;
 }
@@ -93,4 +113,9 @@ a:link {
 
 .buttons a.active {
   opacity: 1.0;
+}
+
+/* Disable toggle button */
+.djs-palette-toggle {
+  display: none;
 }

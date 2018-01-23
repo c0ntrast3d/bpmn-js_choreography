@@ -22,7 +22,7 @@ module.exports = {
         to: path.resolve(__dirname, 'dist')
       },
       {
-        from: 'style/app.css',
+        from: 'style/',
         to:   path.resolve(__dirname, 'dist/css')
       },
       {
